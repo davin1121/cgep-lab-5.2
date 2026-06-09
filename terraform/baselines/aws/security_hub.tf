@@ -9,7 +9,9 @@
 # If Security Hub is already enabled (from a previous experiment or org
 # automation), terraform apply will return ResourceConflictException.
 # Fix: terraform import aws_securityhub_account.this <ACCOUNT_ID>
-resource "aws_securityhub_account" "this" {}
+resource "aws_securityhub_account" "this" {
+  enable_default_standards = false
+}
 
 # Subscribe to NIST 800-53 Rev 5.
 # This is the standard that maps directly to FedRAMP, FISMA, and most
